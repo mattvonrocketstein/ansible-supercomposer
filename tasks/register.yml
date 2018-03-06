@@ -12,7 +12,7 @@
       command={{supercomposer_register.command}}
       directory={{supercomposer_register.directory|default('/tmp')}}
       autostart={{supercomposer_register.autostart|default('true')}}
-      # autorestart={{supercomposer_register.autorestart|default('false')}}
+      autorestart={{supercomposer_register.autorestart|default('false')}}
       startretries={{supercomposer_register.startretries|default(1)}}
       user={{supercomposer_user}}
       environment=HOME=/home/{{supercomposer_user}}
