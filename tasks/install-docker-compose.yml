@@ -1,0 +1,23 @@
+##
+# tasks file for ansible/roles/supercomposer
+##
+---
+
+- name: Install pip
+  apt:
+    name: python-pip
+    state: installed
+
+- name: Install docker-compose with pip
+  pip:
+    name: "{{item}}"
+  with_items:
+    - docker-compose=={{docker_compose_version|default('1.15.0')}}
+
+- name: Add deploy user to docker group
+  user:
+    name: "{{item}}"
+    groups: docker
+    append: yes
+  with_items:
+    - "{{supercomposer_user}}"

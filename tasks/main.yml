@@ -1,0 +1,25 @@
+---
+# tasks file for ansible/roles/supercomposer
+
+##
+#
+##
+#
+# - set_fact:
+#     role_vars:
+#       supercomposer_install_supervisor: "{{supercomposer_install_supervisor}}"
+#       supercomposer_install_docker_compose: "{{supercomposer_install_docker_compose}}"
+#       supercomposer_register: "{{supercomposer_register}}"
+#
+# - name: role vars
+#   debug:
+#     var: role_vars
+#
+# - include_tasks: install-supervisor.yml
+#   when: supercomposer_install_supervisor
+#
+# - include_tasks: install-docker-compose.yml
+#   when: supercomposer_install_docker_compose
+#
+# - include_tasks: register.yml
+#   when: supercomposer_register

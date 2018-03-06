@@ -1,0 +1,11 @@
+##
+# defaults file for ansible/roles/supercomposer
+##
+---
+supercomposer_user: "{{ansible_user}}"
+supercomposer_install_supervisor: no
+supercomposer_install_docker_compose: no
+supercomposer_register: no
+
+name: !!null
+command: !!null

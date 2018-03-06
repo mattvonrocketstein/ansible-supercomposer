@@ -1,0 +1,23 @@
+##
+# tasks file for ansible/roles/supercomposer
+##
+---
+
+- name: Create supervisor config
+  register: supervisor_config
+  copy:
+    dest: "/etc/supervisor/conf.d/{{supercomposer_register.name}}.conf"
+    content: |
+      [program:{{supercomposer_register.name}}]
+      command={{supercomposer_register.command}}
+      directory={{supercomposer_register.directory|default('/tmp')}}
+      autostart={{supercomposer_register.autostart|default('true')}}
+      # autorestart={{supercomposer_register.autorestart|default('false')}}
+      startretries={{supercomposer_register.startretries|default(1)}}
+      user={{supercomposer_user}}
+      environment=HOME=/home/{{supercomposer_user}}
+
+- shell: >
+    supervisorctl reread
+    && supervisorctl update
+    && supervisorctl restart {{supercomposer_register.name}}
